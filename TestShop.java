@@ -1,57 +1,81 @@
+package project;
+
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 public class TestShop {
 
     public static void main(String args[]) {
 
-        // Ğ”Ğ•Ğ¤Ğ˜ĞĞ˜Ğ ĞĞœĞ• (Ğ¡ĞªĞ—Ğ”ĞĞ’ĞĞœĞ•) ĞŸĞ ĞĞ˜Ğ—Ğ’ĞĞ”Ğ˜Ğ¢Ğ•Ğ›Ğ˜
-        Manufacturer bmw = new Manufacturer("BWM",
+        // ÄÅÔÈÍÈĞÀÌÅ (ÑÚÇÄÀÂÀÌÅ) ÏĞÎÈÇÂÎÄÈÒÅËÈ
+        Manufacturer bmw = new Manufacturer("BMW",
                 "Germany", "Bavaria", "665544", "876666");
 
         Manufacturer audi = new Manufacturer("Audi", "Germany", "Berlin", "123123", "980765");
 
 
 
-        // Ğ”Ğ•Ğ¤Ğ˜ĞĞ˜Ğ ĞĞœĞ• (Ğ¡ĞªĞ—Ğ”ĞĞ’ĞĞœĞ•) ĞĞ’Ğ¢ĞĞœĞĞ‘Ğ˜Ğ›Ğ˜
-        Car bmw316i = new Car("BMW", "316i", 1994);
-        Car ladaSamara = new Car("Lada", "Samara", 1987);
-        Car mazdaMX5 = new Car("Mazda", "MX5", 2008);
-        Car mercedesC500 = new Car("Mercedes", "C500", 1993);
-        Car trabant = new Car("trabant", "600", 1962);
-        Car opelAstra = new Car("Opel", "Astra", 1991);
+        // ÄÅÔÈÍÈĞÀÌÅ (ÑÚÇÄÀÂÀÌÅ) ÀÂÒÎÌÎÁÈËÈ
+        Car bmw316i = new Car("BMW", "316i", "1994");
+        Car ladaSamara = new Car("Lada", "Samara", "1987");
+        Car mazdaMX5 = new Car("Mazda", "MX5", "2008");
+        Car mercedesC500 = new Car("Mercedes", "C50", "1993");
+        Car trabant = new Car("trabant", "600", "1962");
+        Car opelAstra = new Car("Opel", "Astra", "1991");
 
-
-        // Ğ”Ğ•Ğ¤Ğ˜ĞĞ˜Ğ ĞĞœĞ• (Ğ¡ĞªĞ—Ğ”ĞĞ’ĞĞœĞ•) Ğ•Ğ’Ğ¢Ğ˜ĞĞ Ğ Ğ•Ğ—Ğ•Ğ Ğ’ĞĞ Ğ§ĞĞ¡Ğ¢
+        ArrayList<Car> supportedCars = null;
+        
+        // ÄÅÔÈÍÈĞÀÌÅ (ÑÚÇÄÀÂÀÌÅ) ÅÂÒÈÍÀ ĞÅÇÅĞÂÍÀ ×ÀÑÒ
         Part cheapPart = new Part("Tires 165/50/13", 302.36,
-                345.58, audi, "T332", PartCategory.TIRES);
+                345.58, audi, "T332", PartCategory.TIRES, supportedCars);
 
-        // Ğ”ĞĞ‘ĞĞ’Ğ¯ĞœĞ• Ğ˜ĞĞ¤ĞĞ ĞœĞĞ¦Ğ˜Ğ¯ Ğ—Ğ ĞšĞĞ˜ ĞšĞĞ›Ğ˜ Ğ• ĞŸĞ Ğ˜Ğ›ĞĞ–Ğ˜ĞœĞ
-        cheapPart.Ğ°ddSupportedCar(ladaSamara);
-        cheapPart. Ğ”Ğ¾Ğ±Ğ°Ğ²ĞµÑ‚Ğµ Ğ¾Ñ‰Ğµ 2 Ğ°Ğ²Ñ‚Ğ¾Ğ¼Ğ¾Ğ±Ğ¸Ğ»Ğ°...
+        // ÄÎÁÀÂßÌÅ ÈÍÔÎĞÌÀÖÈß ÇÀ ÊÎÈ ÊÎËÈ Å ÏĞÈËÎÆÈÌÀ
+        cheapPart.addSupportedCar(ladaSamara);
+        cheapPart.addSupportedCar(trabant);
+       
 
 
 
-        // Ğ”Ğ•Ğ¤Ğ˜ĞĞ˜Ğ ĞĞœĞ• (Ğ¡ĞªĞ—Ğ”ĞĞ’ĞĞœĞ•) Ğ¡ĞšĞªĞŸĞ Ğ Ğ•Ğ—Ğ•Ğ Ğ’ĞĞ Ğ§ĞĞ¡Ğ¢
+        // ÄÅÔÈÍÈĞÀÌÅ (ÑÚÇÄÀÂÀÌÅ) ÑÊÚÏÀ ĞÅÇÅĞÂÍÀ ×ÀÑÒ
         Part expensivePart = new Part("BMW Engine Oil",
-                633.17, 670.0, bmw, "Oil431", PartCategory.ENGINE);
+                633.17, 670.0, bmw, "Oil431", PartCategory.ENGINE, supportedCars);
 
-        // Ğ”ĞĞ‘ĞĞ’Ğ¯ĞœĞ• Ğ˜ĞĞ¤ĞĞ ĞœĞĞ¦Ğ˜Ğ¯ Ğ—Ğ ĞšĞĞ˜ ĞšĞĞ›Ğ˜ Ğ• ĞŸĞ Ğ˜Ğ›ĞĞ–Ğ˜ĞœĞ
-        expensivePart.Ğ°ddSupportedCar(bmw316i);
-        expensivePart. Ğ”Ğ¾Ğ±Ğ°Ğ²ĞµÑ‚Ğµ Ğ¾Ñ‰Ğµ 4 Ğ°Ğ²Ñ‚Ğ¾Ğ¼Ğ¾Ğ±Ğ¸Ğ»Ğ°...
+        // ÄÎÁÀÂßÌÅ ÈÍÔÎĞÌÀÖÈß ÇÀ ÊÎÈ ÊÎËÈ Å ÏĞÈËÎÆÈÌÀ
+        expensivePart.addSupportedCar(mazdaMX5);
+        expensivePart.addSupportedCar(bmw316i);
+        
 
 
 // // // // // // // // // // // // // // // // // // // // //
 
-        // Ğ¡ĞªĞ—Ğ”ĞĞ’ĞĞœĞ• ĞĞĞ’ ĞœĞĞ“ĞĞ—Ğ˜Ğ
-        Shop newShop = new Shop(" (Ğ˜Ğ¼Ğµ Ğ¿Ğ¾ Ğ²Ğ°Ñˆ Ğ¸Ğ·Ğ±Ğ¾Ñ€) ");
+        // ÑÚÇÄÀÂÀÌÅ ÍÎÂ ÌÀÃÀÇÈÍ
+        Shop newShop = new Shop("Car parts");
 
 
-        // Ğ”ĞĞ‘ĞĞ’Ğ¯ĞœĞ• Ğ§ĞĞ¡Ğ¢Ğ˜ Ğ’ ĞœĞĞ“ĞĞ—Ğ˜ĞĞ
-        newShop.addPart(cheapPart);// Ğ•Ğ’Ğ¢Ğ˜ĞĞ Ğ¡ĞšĞªĞŸĞ Ğ§ĞĞ¡Ğ¢
-        newShop. Ğ”Ğ¾Ğ±Ğ°Ğ²ĞµÑ‚Ğµ ÑĞºÑŠĞ¿Ğ° /expensivePart/ Ñ‡Ğ°ÑÑ‚
+        // ÄÎÁÀÂßÌÅ ×ÀÑÒÈ Â ÌÀÃÀÇÈÍÀ
+        newShop.addPart(cheapPart);
+        newShop.addPart(expensivePart); // ÅÂÒÈÍÀ È ÑÊÚÏÀ ×ÀÑÒ
+       
 
 
-        // Ğ ĞĞ—ĞŸĞ•Ğ§ĞĞ¢Ğ’ĞĞœĞ• Ğ˜ĞĞ¤ĞĞ ĞœĞĞ¦Ğ˜Ğ¯ Ğ—Ğ ĞœĞĞ“ĞĞ—Ğ˜ĞĞ
-        System.out.println(Ğ¸Ğ¼ĞµÑ‚Ğ¾ Ğ½Ğ° Ğ¾Ğ±ĞµĞºÑ‚Ğ°);
+        // ĞÀÇÏÅ×ÀÒÂÀÌÅ ÈÍÔÎĞÌÀÖÈß ÇÀ ÌÀÃÀÇÈÍÀ
+        System.out.println(newShop.toString());
 
+        JFrame jframe = new JFrame();
+        Rectangle bounds = new Rectangle(700, 340);
+        jframe.setBounds(bounds);
+        jframe.setVisible(true);
+        
+        JLabel jlabel = new JLabel();
+        jlabel.setSize(100, 200);
+        Color black = new Color(0, 0, 0);
+        jlabel.setBackground(black);
+        jlabel.setText("ceci e gei");
+        
     }
 
 } // END

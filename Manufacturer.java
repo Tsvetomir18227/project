@@ -1,9 +1,14 @@
+package project;
+
+import java.util.*;
 public class Manufacturer {
-     String name;
-     String country;
-     String address;
-     String phoneNumber;
-     String fax;
+    String name;
+    String country;
+    String address;
+    String phoneNumber;
+    String fax;
+    
+   
 
     public Manufacturer(String name, String country, String address, String phoneNumber, String fax) {
         this.name = name;
@@ -52,4 +57,11 @@ public class Manufacturer {
     public void setFax(String fax) {
         this.fax = fax;
     }
+
+	@Override
+	public String toString() {
+		return name + "<"  + "country=" + country + ", address=" + address + ", phoneNumber="
+				+ phoneNumber + ", fax=" + fax + ">";
+	}
+   
 }

@@ -1,20 +1,29 @@
+package project;
+
+
 import java.util.*;
 public class Part {
-    String name;
-    double buyPrice;
-    double sellPrice;
-    PartCategory category;
-    //HashSet<Car> supportedCar;
-    Manufacturer manufacturer;
-    String t332;
-
-    public Part(String name, double buyPrie, double sellPrice, Manufacturer manufacturer,String t332,  PartCategory category;) {
-       this.name = name;
-       this.buyPrice = buyPrie;
-       this.sellPrice = sellPrice;
-       this. manufacturer = manufacturer;
-       this.t332 = t332;
-       this.category = category;
+	
+    private String name;
+    private double buyPrice;
+    private double sellPrice;
+    private PartCategory category;
+    private Manufacturer manufacturer;
+    private String code;
+    public static ArrayList<Car> supportedCars = new ArrayList<>();
+    
+    Part(){
+    	
+    }
+    
+    public Part(String name, double buyPrie, double sellPrice, Manufacturer manufacturer,String code,  PartCategory category, ArrayList<Car> cars) {
+        this.name = name;
+        this.buyPrice = buyPrie;
+        this.sellPrice = sellPrice;
+        this. manufacturer = manufacturer;
+        this.code = code;
+        this.category = category;
+        this.supportedCars = supportedCars;
     }
 
 
@@ -27,13 +36,6 @@ public class Part {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public PartCategory getCategory() {
         return category;
@@ -41,14 +43,6 @@ public class Part {
 
     public void setCategory(PartCategory category) {
         this.category = category;
-    }
-
-    public HashSet<Car> getSupportedCar() {
-        return supportedCar;
-    }
-
-    public void setSupportedCar(HashSet<Car> supportedCar) {
-        this.supportedCar = supportedCar;
     }
 
     public double getBuyPrice() {
@@ -74,12 +68,24 @@ public class Part {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
+    
+    
+    
+    public static void printParts() {
+    	
+    }
+    
+  
     public void addSupportedCar(Car car){
-        this.supportedCars.add(car);
+    	     supportedCars.add(car);
     }
 
-    @Override
-    public String toString(){
+	@Override
+	public String toString() {
+		return " Part name : " + name + "\n buyPrice : " + buyPrice + "\n sellPrice : " + sellPrice + "\n category : " + category
+				+ "\n manufacturer : " + manufacturer.toString() + "\n code : " + code;
+	}
+    
+    
 
-    }
 }
